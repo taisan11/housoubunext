@@ -8,8 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "set ANALYZE=true&&next dev",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -29,15 +27,6 @@
     "typescript": "5.1.3"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.0.27",
-    "@storybook/addon-interactions": "^7.0.27",
-    "@storybook/addon-links": "^7.0.27",
-    "@storybook/blocks": "^7.0.27",
-    "@storybook/nextjs": "^7.0.27",
-    "@storybook/react": "^7.0.27",
-    "@storybook/testing-library": "^0.0.14-next.2",
-    "eslint-plugin-storybook": "^0.6.12",
-    "next-compose-plugins": "^2.2.1",
-    "storybook": "^7.0.27"
+    "next-compose-plugins": "^2.2.1"
   }
 }
