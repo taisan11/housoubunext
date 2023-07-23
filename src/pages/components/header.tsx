@@ -1,8 +1,7 @@
 'use client'
 import { Burger, Header, Title ,ActionIcon, SimpleGrid} from "@mantine/core"
 // import { IconSun } from '@tabler/icons';
-import { createStyles } from '@mantine/core'
-
+import { createStyles } from '@mantine/core';
 const useStyles = createStyles((theme, _params, getRef) => ({
     burgerArea:{
         display: 'flex',
