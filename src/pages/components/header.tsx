@@ -1,7 +1,6 @@
 'use client'
 import { Burger, Header, Title ,ActionIcon, SimpleGrid} from "@mantine/core"
 // import { IconSun } from '@tabler/icons';
-import { BsFillSunFill } from "react-icons/bs"
 import { createStyles } from '@mantine/core'
 
 const useStyles = createStyles((theme, _params, getRef) => ({
@@ -34,11 +33,6 @@ const HomeHeader= ()=>{
                 </div>
                 <div className={classes.titleArea}>
                     <Title order={3}>YSBCDev</Title>
-                </div>
-                <div className={classes.iconArea}>
-                    <ActionIcon>
-                        <BsFillSunFill/>
-                    </ActionIcon>
                 </div>
             </SimpleGrid>
         </Header>
