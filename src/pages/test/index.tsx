@@ -1,21 +1,21 @@
-'use Client'
 // pages/index.tsx
+import React from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { AppShell} from '@mantine/core'
-import HomeHeader from '../components/header'
-import HomeNavbar from '../components/navbar'
-import HomeFooter from '../components/footer'
-import { use } from 'react'
-
+import { AppShell, Aside, MediaQuery } from '@mantine/core'
+import Header from '../components/header'
+import Navbar from '../components/navbar'
+import Footer from '../components/footer'
 const Home: NextPage = () => {
   return (
     <>
       <Head><title>Home</title></Head>
       <AppShell 
-        header={<HomeHeader/>} 
-        navbar={<HomeNavbar/>} 
-        footer={<HomeFooter/>} 
+        navbarOffsetBreakpoint="sm"
+        asideOffsetBreakpoint="sm"
+        header={<Header/>}
+        navbar={<Navbar />} 
+        footer={<Footer/>} 
       >
       </AppShell>
       <h1>やあやあ</h1>
@@ -25,5 +25,3 @@ const Home: NextPage = () => {
     </>
   )
 }
-
-export default Home
