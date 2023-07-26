@@ -86,67 +86,48 @@ const useStyles = createStyles((theme) => ({
 }));
 // export function Comp_Navbar({page, username,}:{page: string, username?:string})
 export function Comp_Navbar({page}:{page: string}) {
-    const { classes, cx } = useStyles();
-    const [active, setActive] = useState(page);
-    // menu一覧
-    const data = [
-        { link: '/', label: '会計', icon: IconCalculator },
-        { link: '/test', label: 'test', icon: IconReceipt2 },
-        { link: '/setting', label: '店舗設定', icon: IconSettings },
-        { link: '/contact', label: '困った時は', icon: IconHelp },
-        { link: 'https://stats.uptimerobot.com/qWXkvcLPmk', label: 'ステータスページ', icon: IconActivity }
-    ];
+        const { classes, cx } = useStyles();
+        const [active, setActive] = useState(page);
     
-    const links = data.map((item) => (
-    <Link
-        className={cx(classes.link, { [classes.linkActive]: item.label === active })}
-        href={item.link}
-        key={item.label}
-    >
-        <item.icon className={classes.linkIcon} stroke={1.5} />
-        <span>{item.label}</span>
-    </Link>
-    ));
-    const [opened, { toggle }] = useDisclosure(false);
-    const label = opened ? 'Close navigation' : 'Open navigation';
-    const nav_width={
-        sm:200,//画面幅がテーマのブレークポイントsmを超える時
-        base:150//上記以外。デフォルト100％幅
+        const data = [
+            { link: '/', label: '会計', icon: IconCalculator },
+            { link: '/history', label: '売上確認', icon: IconReceipt2 },
+            { link: '/setting', label: '店舗設定', icon: IconSettings },
+            { link: '/contact', label: '困った時は', icon: IconHelp },
+            { link: 'https://stats.uptimerobot.com/qWXkvcLPmk', label: 'ステータスページ', icon: IconActivity }
+        ];
+        
+        const links = data.map((item) => (
+        <Link
+            className={cx(classes.link, { [classes.linkActive]: item.label === active })}
+            href={item.link}
+            key={item.label}
+        >
+            <item.icon className={classes.linkIcon} stroke={1.5} />
+            <span>{item.label}</span>
+        </Link>
+        ));
+    
+        return (
+            <Navbar height={" 100% "} width={{ sm: 300 }} p="md" className={classes.navbar} fixed={ true }>
+                <Navbar.Section grow>
+                <Group className={classes.header} position="apart">
+                    <Title order={4} color='#fff'>{"YSBC Dev"}</Title>
+                </Group>
+                {links}
+                </Navbar.Section>
+    
+                {/* <Navbar.Section className={classes.footer}>
+                    <div className={classes.link}>
+                        <IconUserCircle className={classes.linkIcon} stroke={1.5} />
+                        <span>{username}</span>
+                    </div>
+                    <a href="#" className={classes.link} onClick={() => signOut({redirect: true, callbackUrl: "/auth/signout"})}>
+                        <IconLogout className={classes.linkIcon} stroke={1.5} />
+                        <span>ログアウト</span>
+                    </a>
+                </Navbar.Section> */}
+            </Navbar>
+        );
     }
-    
-    export type HomeNavbarProps = {
-        navbarOpened:boolean
-    }
-    
-    const HomeNavbar = ({navbarOpened}:HomeNavbarProps)=>{
-    
-        if(navbarOpened){
-            nav_width.base=150
-        }else{
-            nav_width.base=1
-        }
-
-    return (
-        <Navbar hidden={!navbarOpened} p="sm" width={nav_width} className={classes.navbar} fixed={ true }>
-            <Navbar.Section grow>
-            <Group className={classes.header} position="apart">
-                <Title order={4} color='#fff'>{"YSBC Dev"}</Title>
-                <Burger opened={opened} onClick={toggle} aria-label={label} />
-            </Group>
-            {links}
-            </Navbar.Section>
-            {/* ユーザー関係の物後々追加予定 */}
-            {/* <Navbar.Section className={classes.footer}>
-                <div className={classes.link}>
-                    <IconUserCircle className={classes.linkIcon} stroke={1.5} />
-                    <span>{username}</span>
-                </div>
-                <a href="#" className={classes.link} onClick={() => signOut({redirect: true, callbackUrl: "/auth/signout"})}>
-                    <IconLogout className={classes.linkIcon} stroke={1.5} />
-                    <span>ログアウト</span>
-                </a>
-            </Navbar.Section> */}
-        </Navbar>
-    );
-}
-export default Navbar
+export default Comp_Navbar;    
