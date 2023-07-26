@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import { MantineProvider } from '@mantine/core'
 
 export default function Document() {
   return (
@@ -9,8 +10,22 @@ export default function Document() {
         <meta name="theme-color" content="#fff" />
       </Head>
       <body>
+      <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        breakpoints: {
+          xs: '30em',
+          sm: '48em',
+          md: '64em',
+          lg: '74em',
+          xl: '90em',
+        },
+      }}
+      >
         <Main />
         <NextScript />
+      </MantineProvider>
       </body>
     </Html>
   )
